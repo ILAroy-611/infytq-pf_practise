@@ -1,0 +1,23 @@
+def check_numbers(num1,num2):
+    #start writing your code here
+    count = 0 
+    num_list = []
+    number_list = []
+    j=0 
+    for i in range(num1,num2+1):
+        number_list.append(i)
+    for i in range(0,len(number_list)):
+        for j in range(0,len(number_list)):
+            if j!=i :
+                if number_list[i]%number_list[j]==0:
+                    count+=1 
+                    num_list.append(number_list[i])
+                    break 
+    num_list= set(num_list)
+         
+    
+    return [num_list,count]
+
+num1=2
+num2=20
+print(check_numbers(num1, num2))
