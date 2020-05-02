@@ -1,0 +1,29 @@
+import math
+def close_number(num1,num2,num3):
+    #start writing your code here
+    close =1 
+    far=  2
+    if math.fabs(num1-num2)<=close:
+        far_number = num3
+        if math.fabs(far_number-num1)>=2 and math.fabs(far_number-num2)>=2:
+            return True
+        else:
+            return False
+    elif math.fabs(num2-num3)<=close :
+        far_number=num1 
+        if math.fabs(far_number-num2)>=2 and math.fabs(far_number-num3)>=2:
+            return True
+        else:
+            return False
+    elif math.fabs(num3-num1)<=close:
+        far_number=num2 
+        if math.fabs(far_number-num3)>=2 and math.fabs(far_number-num1)>=2:
+            return True
+        else:
+            return False
+    else:
+        return False
+    
+print(close_number(102,100,99))
+print(close_number(5,4,3))
+print(close_number(5,0,3))
