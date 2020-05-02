@@ -1,0 +1,20 @@
+'''
+@author: ila roy
+#PF-Prac-32
+'''
+def check_squares(number):
+    flag=0 
+    #start writing your code here
+    for i in range(1,100):
+        for j in range(1,100):
+            if i**2 + j**2 == number:
+                flag=1 
+                return True
+            else:
+                flag=0 
+    if flag == 0:
+        return False
+
+
+number=68
+print(check_squares(number))
