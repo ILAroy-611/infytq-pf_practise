@@ -1,0 +1,41 @@
+def integer_to_english(number):
+    #start writing your code here
+    num_to_word_dict = {0:'',1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten',11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'ninteen',20:'twenty',30:'thirty',40:'forty',50:'fifty',60:'sixty',70:'seventy',80:'eighty',90:'ninty',100:'one hundred',200:'two hundred',300:'three hundred',400:'four hundred',500:'five hundred',600:'six hundred',700:'seven hundred',800:'eight hundred',900:'nine hundred'}
+    str_number=str(number)
+    if number <=20:
+        words=num_to_word_dict[number]
+        return words
+    elif number >=21 and number<=99:
+        
+        unit_num=str_number[1]
+        unit_num = int(unit_num)
+        tens_num=str_number[0]
+        tens_num = int(tens_num)
+        words=num_to_word_dict[tens_num*10]+ " " + num_to_word_dict[unit_num]
+        return words
+    elif number >=100 and number<=999 :
+        
+        unit_num=str_number[2]
+        unit_num = int(unit_num)
+        tens_num = str_number[1]
+        tens_num = int(tens_num)
+        hundreds_num=str_number[0]
+        hundreds_num = int(hundreds_num)
+        num = str_number[1:]
+        if unit_num == 0 and tens_num ==0 :
+            words = num_to_word_dict[hundreds_num*100]
+            return words
+        elif int(num) in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19):
+            words = num_to_word_dict[hundreds_num*100] + " and "+ num_to_word_dict[int(num)]
+            return words
+        else:
+            words = num_to_word_dict[hundreds_num*100]+ " and "+num_to_word_dict[tens_num*10]+" "+num_to_word_dict[unit_num]
+        return words
+    elif number == 1000:
+        words = "one thousand"
+        return words
+    else:
+        return -1 
+     
+number=212
+print(integer_to_english(number))
