@@ -1,0 +1,30 @@
+#PF-Prac-42
+def maxvalue_in_column(pixel_grid):
+    result_list=[]
+    new_list=list(enumerate(pixel_grid))
+    list1=[]
+    #start writing your code here
+    for j in range(0,len(pixel_grid[0])):
+        for index,list_element in new_list:
+            list1.append(list_element[j])
+        max_value=max(list1)
+        result_list.append(max_value)
+        list1=[]
+    return result_list
+
+pixel_grid=[[ 4, 2, 3], 
+            [16, 5, 0],
+            [ 3, 200, 6], 
+            [ 0, 10, 12]] 
+pixel_grid1=[[ 4 ], 
+             [ 16 ], 
+             [ 3 ], 
+             [ 0 ]]
+pixel_grid2=[[ 4, 2, 3]]
+pixel_grid3= [[6]] 
+
+print("Pixel grid is:")
+for i in pixel_grid3:
+    print(i)
+output=maxvalue_in_column(pixel_grid3)
+print("The maximum values of each column are:",output)
