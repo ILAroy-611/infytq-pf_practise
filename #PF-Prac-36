@@ -1,0 +1,28 @@
+#PF-Prac-36
+
+def find_target_positions(input_string, target_word):
+    target_list=[]
+    #Start writing your code here
+    enumerate_list=list(enumerate(input_string.split()))
+    
+    for index,word in enumerate_list:
+        if word == target_word:
+            target_list.append(index)
+
+    return target_list
+
+def find_inverted_index(input_string):
+    target_dict={}
+    #Start writing your code here
+    for i in input_string.split():
+        target_word = i 
+        output_list = find_target_positions(input_string, target_word)
+        target_dict.update({i:output_list})
+    return target_dict
+    
+    
+input_string="we dont need no education we dont need no thought control no we dont"
+target_word = "dont"
+print(find_target_positions(input_string, target_word))
+result_dict=find_inverted_index(input_string)
+print(result_dict)
