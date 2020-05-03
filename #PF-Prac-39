@@ -1,0 +1,26 @@
+#PF-Prac-39
+def max_populated_state(cities_dict,state):
+    #start writing your code here
+    new_dict = sorted(cities_dict,key = lambda x:x['Population'] ,reverse=True)
+    new_dict = list(enumerate(new_dict))
+    print(new_dict)
+    for index,dict1 in new_dict:
+        if dict1['State'] == state:
+            max_populated_city=dict1
+            break 
+    return max_populated_city
+    
+cities_dict = [
+ {'Name':'Vancouver','State':'WA','Population':161791},
+ {'Name':'Salem','State':'OR','Population':154637},
+ {'Name':'Seattle','State':'WA','Population':80885},
+ {'Name':'Bellingham','State':'WA','Population':608660},
+ {'Name':'Spokane','State':'WA','Population':208916},
+ {'Name':'Bellevue','State':'WA','Population':608660},
+ {'Name':'Portland','State':'OR','Population':583776}
+ ]
+state="WA"
+print("The city details are:",cities_dict)
+print("State:",state)
+output=max_populated_state(cities_dict,state)
+print("The highest populated city in the given state is:",output)
